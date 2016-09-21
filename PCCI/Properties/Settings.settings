@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PCCIReports.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerIP" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">63.145.247.32</Value>
+    </Setting>
+    <Setting Name="ServerUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">twinpod44</Value>
+    </Setting>
+    <Setting Name="ServerPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">44twinpod</Value>
+    </Setting>
+    <Setting Name="ServiceSourceName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PCCIReportsService</Value>
+    </Setting>
+    <Setting Name="OrgName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">conv</Value>
+    </Setting>
+    <Setting Name="EnableDebugLogging" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

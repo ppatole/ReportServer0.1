@@ -1,0 +1,63 @@
+﻿<div style="padding-left: 30px;">&nbsp;</div>
+<div>
+  <table style="height: 78px;" width="100%">
+    <tbody>
+      <tr>
+        <td style="text-align: right;">
+          <strong>Patient</strong>
+        </td>
+        <td>&nbsp;{{study.patient_name}}</td>
+        <td style="text-align: right;">
+          <strong>DOB</strong>
+        </td>
+        <td>&nbsp;{{study.patient_birth_date}}</td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">
+          <strong>Referring physician</strong>
+        </td>
+        <td>&nbsp;{{study.referring_physician}}</td>
+        <td style="text-align: right;">
+          <strong>Study Date</strong>
+        </td>
+        <td>&nbsp;{{study.study_date}}</td>
+      </tr>
+      <tr>
+        <td style="text-align: right;">
+          <strong>Procedure</strong>
+        </td>
+        <td>&nbsp;{{study.study_description}}</td>
+        <td style="text-align: right;">
+          <strong>MRN</strong>
+        </td>
+        <td>&nbsp;{{study.patientid}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    &nbsp;<strong>RADIOLOGY REPORT</strong>
+  </p>
+  <table style="width: 100%;">
+    <tbody>
+      <tr>
+        <td>{{{NTE-3-ALL}}}</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>PRIVILEGED AND CONFIDENTIAL: This report and the information contained herein are confidential and protected from disclosure pursuant to Federal law. This message is intended only for the use of the Addressee(s) and may contain information that is PRIVILEGED and CONFIDENTIAL. If you are not the intended recipient, you are hereby notified that the use, dissemination, or copying of this information is strictly prohibited. If you have received this communication in error, please erase all copies of the message and its attachments and notify the sender immediately.</div>

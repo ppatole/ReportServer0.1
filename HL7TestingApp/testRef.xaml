@@ -1,0 +1,22 @@
+﻿<Window x:Class="HL7TestingApp.testRef"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HL7TestingApp"
+        mc:Ignorable="d"
+        Title="testRef" Height="345.205" Width="579.452">
+    <Grid>
+        <TextBox x:Name="txtpatient" HorizontalAlignment="Left" Height="24" Margin="117,13,0,0" TextWrapping="Wrap" Text="20809880170 TESTPAT " VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="txtAccession" HorizontalAlignment="Left" Height="24" Margin="117,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="txtPatientID" HorizontalAlignment="Left" Height="24" Margin="117,93,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
+
+        <TextBlock x:Name="textBlockPa" HorizontalAlignment="Left" Margin="13,14,0,0" TextWrapping="Wrap" Text="Patient" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockAcc" HorizontalAlignment="Left" Margin="13,54,0,0" TextWrapping="Wrap" Text="Accession Number" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlockPai" HorizontalAlignment="Left" Margin="13,94,0,0" TextWrapping="Wrap" Text="Patient ID" VerticalAlignment="Top"/>
+
+        <Button x:Name="button" Content="Search" HorizontalAlignment="Left" Margin="50,135,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <TextBox x:Name="txtResult" HorizontalAlignment="Left" Height="138" Margin="10,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="556"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[Field]
+(
+	[FieldID] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
+    [Sequence] INT NULL, 
+    [FieldNameID] BIGINT NULL, 
+    [ReportID] NCHAR(10) NULL, 
+    [Value] NVARCHAR(MAX) NULL, 
+    [ActiveTF] BIT NOT NULL, 
+    [CreatedOn] DATETIME NOT NULL DEFAULT GetDate(), 
+    [UID] UNIQUEIDENTIFIER NOT NULL DEFAULT NEWID()
+)
