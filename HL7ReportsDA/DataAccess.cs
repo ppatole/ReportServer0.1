@@ -12,7 +12,7 @@ namespace ReportsDataAndBusiness
     public class DataAccess
     {
         Common.Log L = new Common.Log("", Properties.Settings.Default.EnableDebugLogging);
-        private  void RecordLog(string logMessage)
+        private void RecordLog(string logMessage)
         {
             L.WriteFilelog("HL7ReportsDataAndBusiness", "DataAccess", logMessage);
         }
@@ -21,7 +21,7 @@ namespace ReportsDataAndBusiness
 
         public void SaveNewReport(Report report, String source = "")
         {
-           // RecordLog("Inside save report. Connction string : " + DatabaseHelper.GetConnection().ConnectionString);
+            // RecordLog("Inside save report. Connction string : " + DatabaseHelper.GetConnection().ConnectionString);
 
             FieldName fieldName = new FieldName();
             List<SqlParameter> prms = new List<SqlParameter>();
@@ -36,7 +36,7 @@ namespace ReportsDataAndBusiness
         /// whereever is required to get parent fieldName object, it must be called/codded saperatly. 
         /// </summary>
         /// <returns></returns>
-        public  FieldName GetFieldNameByID(String FieldNameID)
+        public FieldName GetFieldNameByID(String FieldNameID)
         {
             FieldName fieldName = new FieldName();
             try
@@ -63,7 +63,7 @@ namespace ReportsDataAndBusiness
         }
 
 
-        public  List<Report> GetReports(String PatientName, String AccessionNumber)
+        public List<Report> GetReports(String PatientName, String AccessionNumber)
         {
             List<Report> Reports = new List<Report>();
             Reports = new List<Report>();
@@ -82,20 +82,15 @@ namespace ReportsDataAndBusiness
                     r.PatientID = sdr["PatientID"].ToString();
                     r.Patientname = sdr["Patientname"].ToString();
                     r.ReportDateTime = (DateTime)sdr["ReportDateTime"];
-                    // r.ReportXML = sdr["ReportXML"].ToString();
-                    string xml = string.Empty;
-                    xml = sdr["ReportXML"].ToString();
-                    r.RefPhysician = getValFromXML(xml, "RefPhysician");
-                    r.Procedure = getValFromXML(xml, "Procedure");
-                    r.DOB = DateTime.ParseExact(getValFromXML(xml, "DOB"), "yyyy-MM-ddTHH:mm:ss", null);
-                    r.HL7 = getValFromXML(xml, "HL7");
+                    XmlDocument xml = new XmlDocument();
+                    xml.InnerXml = sdr["ReportXML"].ToString();
+                    r.ReportXML.InnerXml = sdr["ReportXML"].ToString();
+                    r.RefPhysician = Common.CommonFunctions.getValFromXML(xml, Common.CommonFunctions.ReferingPhysicianQueryString);
+                    r.Procedure = Common.CommonFunctions.getValFromXML(xml, Common.CommonFunctions.ProcedureQueryString);
+                    r.DOB = DateTime.ParseExact(Common.CommonFunctions.getValFromXML(xml, Common.CommonFunctions.PatientDOBQueryString), "yyyyMMdd", null);
+                    r.HL7 = Common.CommonFunctions.getValFromXML(xml, "HL7");
 
-                    XmlDocument xmlObs = new XmlDocument();
-                    xmlObs.InnerXml = xml;
-                    foreach (XmlNode xn in xmlObs.SelectNodes("/Report/Observations/string"))
-                    {
-                        r.Observations.Add(xn.InnerText);
-                    }
+                    r.Observations = Common.CommonFunctions.getXMLFromXML(xml, Common.CommonFunctions.ObservationQueryString);
                     Reports.Add(r);
                 }
                 sdr.Close();
@@ -110,24 +105,24 @@ namespace ReportsDataAndBusiness
             return Reports;
         }
 
-        static string getValFromXML(String xml, string field)
-        {
-            if (string.IsNullOrEmpty(xml))
-            {
-                return string.Empty;
-            }
-            string result = string.Empty;
-            try
-            {
-                XmlDocument xd = new XmlDocument();
-                xd.InnerXml = xml;
-                result = xd.SelectSingleNode("/Report/" + field).InnerText;
-            }
-            catch (Exception e)
-            {
-            }
-            return result;
-        }
+        //static string getValFromXML(String xml, string field)
+        //{
+        //    if (string.IsNullOrEmpty(xml))
+        //    {
+        //        return string.Empty;
+        //    }
+        //    string result = string.Empty;
+        //    try
+        //    {
+        //        XmlDocument xd = new XmlDocument();
+        //        xd.InnerXml = xml;
+        //        result = xd.SelectSingleNode("/Report/" + field).InnerText;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //    }
+        //    return result;
+        //}
 
         // static List<FieldName> fieldNames;
 
@@ -173,7 +168,5 @@ namespace ReportsDataAndBusiness
         //    RecordLog("complete GetAllFieldNames");
         //    return fieldNames;
         //}
-
-
     }
 }

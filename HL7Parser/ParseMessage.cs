@@ -14,14 +14,6 @@ namespace HL7Parser
 
     public class HL7Parser2X
     {
-        public static string StudyDateQueryString = "MSH.7/TS.1";
-        public static string PatientIDQueryString = "PID.2/CX.1";
-        public static string PatientFirstNameQueryString = "PID.5/XPN.1";
-        public static string PatientLastNameQueryString = "PID.5/XPN.2";
-        public static string PatientDOBQueryString = "PID.7/TS.1";
-        public static string AccessionNumberQueryString = "PID.3/CX.1";
-        public static string AcknowledgeMessageQueryString = "MSH.10";
-        public static string MessageVersionQueryString = "MSH.12";
 
         private ReportsDataAndBusiness.DataEntities.Report report = new ReportsDataAndBusiness.DataEntities.Report();
         public bool IsHL7Valid
@@ -153,37 +145,37 @@ namespace HL7Parser
 
         string GetStudyDate(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message, StudyDateQueryString);
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.StudyDateQueryString);
         }
 
         string GetPatientID(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message, PatientIDQueryString);
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.PatientIDQueryString);
         }
 
         string GetPatientName(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message, PatientFirstNameQueryString) + " " + CommonFunctions.getValFromXML(Message, PatientLastNameQueryString);
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.PatientFirstNameQueryString) + " " + CommonFunctions.getValFromXML(Message, CommonFunctions.PatientLastNameQueryString);
         }
 
         string GetPatientDOB(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message, PatientDOBQueryString );
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.PatientDOBQueryString );
         }
 
         string GetAccessioNnumber(XmlDocument Message)
         {           
-            return CommonFunctions.getValFromXML(Message, AccessionNumberQueryString);
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.AccessionNumberQueryString);
         }
 
         public static string GetAckMess(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message,AcknowledgeMessageQueryString );
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.AcknowledgeMessageQueryString );
         }
 
         public static string GetVer(XmlDocument Message)
         {
-            return CommonFunctions.getValFromXML(Message, MessageVersionQueryString);
+            return CommonFunctions.getValFromXML(Message, CommonFunctions.MessageVersionQueryString);
         }
 
         //string GetRefphys(String Message)

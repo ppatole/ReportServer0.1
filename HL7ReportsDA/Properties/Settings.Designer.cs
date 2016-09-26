@@ -25,15 +25,6 @@ namespace ReportsDataAndBusiness.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=.\\TWINPOD2;database=ReportsServer;User id=sa;password=sa1;")]
-        public string ConnectionString {
-            get {
-                return ((string)(this["ConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ReportsSettings.txt")]
         public string ReportsSetting {
             get {
@@ -56,6 +47,15 @@ namespace ReportsDataAndBusiness.Properties {
         public bool EnableDebugLogging {
             get {
                 return ((bool)(this["EnableDebugLogging"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=.\\SQLEXPRESS;database=ReportsServer;User id=sa;password=sa1;")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
             }
         }
     }

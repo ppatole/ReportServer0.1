@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace ReportWCF
 {
@@ -13,10 +9,11 @@ namespace ReportWCF
     
     public interface IReports
     {
-
+        [OperationContract]
+        List<string> GetAllQueryStrings();
         
         [OperationContract]
-        string GetReports(String PatientName, String AccessionNumber, string PatientID);
+        string GetReports(String PatientName, String AccessionNumber, List<string> QueryStrings, string PatientID);
 
         [OperationContract]
         string GetHTMLReports(String PatientName, String AccessionNumber, string PatientID);                 

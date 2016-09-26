@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ReportsDataAndBusiness.DataEntities
 {
@@ -23,8 +24,8 @@ namespace ReportsDataAndBusiness.DataEntities
         String accessionNumber = String.Empty;
         List<Field> reportFields = new List<Field>();
         string reportText = string.Empty;
-       
-        List<string> observations = new List<string>();
+
+        XmlDocument observations = new XmlDocument();
 
         public string ReportID
         {
@@ -143,7 +144,7 @@ namespace ReportsDataAndBusiness.DataEntities
             }
         }
 
-        public List<string> Observations
+        public XmlDocument Observations
         {
             get
             {
